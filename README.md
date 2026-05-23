@@ -132,3 +132,24 @@ learning for 梅花七月香, 基于FreeRTOS的stm32智能天气时钟
 <img src="images/html.png" alt="image-20260511215212920" style="zoom:10%;" />
 
 🔍 [**👉 点击此处在线查看完整的交互式代码对比与源码归档报告**](https://rawcdn.githack.com/waking-y/weatherclock_stm32/main/sources/lcdpro.html)
+
+# 8.esp32_at
+
+基于 STM32f407zgt6 + ESP32c3core AT 指令实现天气时钟显示
+
+- STM32 的 **PB10** (TX) - ESP32-C3 的 **IO6** (RX)
+- STM32 的 **PB11** (RX) - ESP32-C3 的 **IO7** (TX)
+
+## 项目说明
+
+代码基本实现天气时钟显示，以下为结果展示
+
+<img src="images/smart1.0.jpg" alt="image-20260511215212920" style="zoom:10%;" />
+
+## 架构说明
+
+由于时间仓促，代码结构没有按照原先 BSP 分层，即没有实现 board 文件
+
+但是每个驱动部分均实现 **描述符（_desc.h）** 文件
+
+这个时候的board的功能只有原先的串口实现了，在调试过程中已将代码中botton,led等无关功能给注释和删去了
